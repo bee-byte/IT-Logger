@@ -21,7 +21,7 @@ export const getTechs = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: TECHS_ERROR,
-      payload: err.response.status(500).json,
+      payload: err.response.statusText,
     });
   }
 };
@@ -35,7 +35,7 @@ export const addTech = (tech) => async (dispatch) => {
       method: 'POST',
       body: JSON.stringify(tech),
       headers: {
-        'Contect-Type': 'application/json',
+        'Content-Type': 'application/json',
       },
     });
     const data = await res.json();
@@ -45,9 +45,12 @@ export const addTech = (tech) => async (dispatch) => {
       payload: data,
     });
   } catch (err) {
+    console.log(err);
+    console.error(err);
+    console.error('testing');
     dispatch({
       type: TECHS_ERROR,
-      payload: err.response.status(500).json,
+      payload: err.response.statusText,
     });
   }
 };
@@ -57,4 +60,24 @@ export const setLoading = () => {
   return {
     type: SET_LOADING,
   };
+};
+
+export const deleteTech = (id) => async (dispatch) => {
+  try {
+    setLoading();
+
+    await fetch(`/techs/${id}`, {
+      method: 'DELETE',
+    });
+
+    dispatch({
+      type: DELETE_TECH,
+      payload: id,
+    });
+  } catch (err) {
+    dispatch({
+      type: TECHS_ERROR,
+      payload: err.response.statusText,
+    });
+  }
 };

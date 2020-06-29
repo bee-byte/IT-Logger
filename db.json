@@ -1,11 +1,25 @@
 {
   "logs": [
     {
-      "message": "broken phone fixed",
+      "message": "Fixed hardware @ PC01",
+      "attention": false,
+      "tech": "Bee Bee",
+      "date": "2020-06-29T09:30:10.085Z",
+      "id": 1
+    },
+    {
+      "message": "No internet connection pushing through",
+      "attention": true,
+      "tech": "Shayna Williamson",
+      "date": "2020-06-29T09:30:37.801Z",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "message": "Replaced motherboard @ PC234",
       "attention": false,
       "tech": "Sam Smith",
-      "date": "2020-06-25T22:27:35.755Z",
-      "id": 1
+      "date": "2020-06-29T09:31:26.303Z"
     }
   ],
   "techs": [
@@ -21,13 +35,17 @@
     },
     {
       "id": 3,
-      "firstname": "Shayna",
+      "firstName": "Shayna",
       "lastName": "Williamson"
     },
     {
+      "firstName": "Jay",
+      "lastName": "Son",
       "id": 4
     },
     {
+      "firstName": "Bee",
+      "lastName": "Bee",
       "id": 5
     }
   ]
